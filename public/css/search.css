@@ -1,0 +1,51 @@
+.img_sug {
+    max-width:40px;
+    max-height:40px;
+    width:auto;
+    height:auto;
+    border-width:3px;
+    border-color: #ffffff;
+    border-style:solid;
+    margin:1px;
+    float:left;
+}
+.text_sug {
+    text-align: center;
+    float: left;
+}
+.sug_row {
+    align-items: center;
+    margin:auto;
+    display: flex;
+    margin-top: 1px;
+}
+
+.sug_row:hover{
+    border: 1px solid blue;
+    cursor: pointer;
+}
+ a{
+     text-decoration: none;
+ }
+
+.search_bar{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*the following one is used for the film info-page*/
+.img_bio_film{
+    display: block;
+    max-width:500px;
+    max-height:380px;
+    width: auto;
+    height: auto;
+    /*margin: auto ;*/
+    float: right;
+    margin-right: 40px;
+}
+.highlight_text{
+    color: #00ffff;
+    font-weight: bold;
+    font-size: large;
+}
