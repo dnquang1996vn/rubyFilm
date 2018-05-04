@@ -3,12 +3,12 @@
   <h2 class="margin-top-1 margin-bottom-1 text-primary">Movie Profile</h2>
 
   <div style="width: 40%; float:left;">
-    <img src="/images/rau.png" class="img_bio_film">
+    <img src="<%=@film.img_path %>" class="img_bio_film">
   </div>
   <div style="width: 60%; float:right; ">
     <div>
       <p class="highlight_text">Film name:</p>
-      Rau sach.
+      <%= @film.name %>
     </div>
     <div>
       <p class="highlight_text">Genre:</p>
@@ -16,19 +16,19 @@
     </div>
     <div>
       <p class="highlight_text"> Released date:</p>
-      2014-03-05
+      <%= @film.released_date  %>
     </div>
     <div style="width: 70%; float: left">
       <p class="highlight_text">Short description:</p>
-      <p>Phim ve chang trai moi ra pho</p>
+      <p><%= @film.description %></p>
     </div>
     <div style="clear: both">
       <p class="highlight_text">Length:</p>
-      180 mins
+      <%= @film.length %> mins
     </div>
     <div style="clear: both">
       <p class="highlight_text">Mature rate:</p>
-      18+
+      <%= @film.mat_rate%>
     </div>
     <div style="clear: both">
       <p class="highlight_text">Rate Info:</p>
@@ -56,3 +56,53 @@
 
   </div>
 </section>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+  jQuery(document).ready(function () {
+      $('.rate-btn').hover(function () {
+          $('.rate-btn').removeClass('rate-btn-hover');
+          var therate = $(this).attr('id');
+          for (var i = therate; i >= 0; i--) {
+              $('.btn-' + i).addClass('rate-btn-hover');
+          }
+          ;
+      });
+      $('.rate-btn').click(function () {
+          var dataRate =<%= @film.id %>
+          var therate = $(this).attr('id');
+          $('.rate-btn').removeClass('rate-btn-active');
+          for (var i = therate; i >= 0; i--) {
+              $('.btn-' + i).addClass('rate-btn-active');
+          }
+          ;
+          $.ajax(
+              {
+                  method: 'GET',
+                  url: '/rate',
+                  data: {
+                      rate: 1,
+                      film_id: dataRate,
+                      rate_point: therate,
+                  },
+                  success: function (return_var) {
+                      console.log("return var");
+                      console.log(return_var);
+                      if (return_var[0].command_code == 0) {
+                          swal("Sorry!", "You need to login before rating this film!", "error");
+                          // window.location.href = "/login"
+                      }
+                      else {
+                          swal("Good job!", "Thank you for your rating!", "success");
+                          $("#rate_info").html("<p>Rated " + return_var[0].avg_point + " stars out of " + return_var[0].rate_times + " reviews.</p>");
+                          $("#rate_noti").html("<p>You rated this film " + therate + " stars</p>");
+                          console.log(return_var);
+                      }
+                  },
+                  dataType: 'Json',
+              });
+      });
+      
+  })
+
+</script>
