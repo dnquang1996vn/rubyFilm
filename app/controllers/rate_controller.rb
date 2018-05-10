@@ -24,12 +24,9 @@ class RateController < ApplicationController
     end
   end
 
-  def get_rating_info
-
-  end
   def is_user_rated(user_id, film_id)
     @rate_info = Rate.where("film_id = ? AND user_id = ?" , "#{@film_id}", "#{@user_id}")
-    if(@rate_info.length == 0)
+    if(@rate_info.size == 0)
       return false
     else
       return true

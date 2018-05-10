@@ -37,7 +37,7 @@
                             if(data[1].length > 0){
                                 for (var i = 0; i < data[1].length && i < max_results; i++) {
                                     var obj = data[1][i];
-                                    response = response + "<li class='sug_row'><img src=" + obj.img_path + " class='img_sug'><a style='cursor: pointer;color:lightgoldenrodyellow; margin-left:10px;' href='/movie/{$data->id}'>" + obj.name + "</a></li>";
+                                    response = response + "<li class='sug_row'><img src="+obj.img_path+" class='img_sug'><a style='cursor: pointer;color:lightgoldenrodyellow; margin-left:10px;' href=/people/"+obj.id+">"+obj.name+"</a></li>";
                                     // console.log(obj.name);
                                 }
                             }
