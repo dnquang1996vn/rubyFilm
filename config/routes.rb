@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'movie/show'
   get 'static_page/index'
   get 'welcome/index'
+  get 'admin/dashboard', to: 'admin#new'
   get 'static_page/discover', to: 'static_page#discover_movies'
   get 'static_page/now_playing', to: 'static_page#now_playing'
   get 'static_page/popular', to: 'static_page#popular'
