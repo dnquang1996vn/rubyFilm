@@ -3,4 +3,7 @@ class Comment < ApplicationRecord
 
   belongs_to :film
   belongs_to :user
+
+  #commenter
+  attr_accessor :commenter
 end

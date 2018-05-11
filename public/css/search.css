@@ -55,3 +55,7 @@
     font-weight: bold;
     font-size: large;
 }
+.bio_text{
+    width: 500px;
+    text-align: justify;
+}

@@ -1,0 +1,44 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<section class="bg-primary">
+  <div class="container">
+    <h2 class="margin-top-1 margin-bottom-1 text-primary">Actor Profile</h2>
+
+    <div style="width: 40%; float:left;">
+      <img src="<%= @person.img_path %>" class="img_bio_film">
+    </div>
+    <div style="width: 60%; float:right; ">
+      <div>
+        <p class="highlight_text">Name:</p>
+        <%= @person.name %>
+      </div>
+      <div>
+        <p class="highlight_text">Date of Birth:</p>
+        <%= @person.dob %>
+      </div>
+      <div>
+        <p class="highlight_text">Place of Birth:</p>
+        <%= @person.pob %>
+      </div>
+      <div>
+        <p class="highlight_text">Gender:</p>
+        <% if @person.gender == 1 %>
+        Female
+        <% else @person.gender == 2%>
+        Male
+        <% end %>
+      </div>
+      <div>
+        <p class="highlight_text">Films Join:</p>
+        <% @films.each do |film| -%>
+          <a href="/movie/<%= film.id %>" style="color: cadetblue"><%= film.name %></a> <br>
+        <% end -%>
+      </div>
+      <div>
+        <p class="highlight_text">Short Description:</p>
+        <p class="bio_text"><%=@person.bio %></p>
+      </div>
+    </div>
+
+    <div style="clear:both; width:100%;"></div>
+  </div>
+</section>
