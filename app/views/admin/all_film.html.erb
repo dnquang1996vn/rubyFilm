@@ -8,7 +8,7 @@
       </div>
 
 
-      <% @film.each do |item| -%>
+      <% @film.each do |item| %>
         <div class="col-sm-6 table-bordered movie-item boxed" style="display: block;width: 100%;color:whitesmoke">
           <div class="col-sm-4">
             <img src=" <%= item.img_path %>"
@@ -25,9 +25,16 @@
               <time><%= item.length %> min</time>
               <span>-</span>
 
+              <% @genres = item.genres; %>
+              <% @genres.each do |genre| %>
+                <% if genre != @genres[0] %>
+                  <% puts '|'; %>
+                  <%= genre.name %>
+                <% end %>
+              <% end %>
             </p>
-            <div class="rating">.
-              <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] -%>
+            <div class="rating">
+              <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
                 <span>☆</span>
               <% end %>
             </div>
@@ -39,25 +46,31 @@
                 <%= item.description %>
               <% end %>
             <h5>Director:
-              <!--              <a class="text-primary" href="/people/{{$film->directors[0]['id']}}">-->
-              <!--                {{$film->directors[0]['name']}}</a>-->
+              <!--              <a class="text-primary" href="/people/">-->
+              <%# @directors = item.directors; %>
+              <!--                <%#= @directors[0]['name'] %></a>-->
             </h5>
             <h5>Stars:
-              <!--            @php ($i = 0)-->
-              <!--            @foreach ($film->actors as $actor)-->
-              <a class="text-primary" href=""></a>
-              <!--            @if (++$i == 3) @break @else, @endif-->
-              <!--            @endforeach-->
+              <% $i = 0 %>
+              <% @actors = item.actors; %>
+              <% @actors.each do |actor| %>
+                <a class="text-primary" href="/people/<%= actor.id %>"><%= actor.name %></a>
+                <% if ++$i == 3 %>
+                  <% break %>
+                <% else %>
+                <% end %>
+              <% end %>
             </h5>
 
             <% if (item.trailer_path).present? %>
               <a href=" <%= item.trailer_path %>" class="btn btn-default">Watch Trailer</a>
             <% end %>
             <a href="" title="Click to edit" class="btn btn-default btn-success">Edit</a>
-            <button  title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="<%= item.id %>">Remove</button>
+            <button title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="<%= item.id %>">Remove</button>
           </div>
         </div>
       <% end -%>
+      <%= will_paginate @film %>
     </div>
   </section>
 </div>
