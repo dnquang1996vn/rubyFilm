@@ -87,6 +87,13 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     jQuery(document).ready(function () {
+        var token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajaxSetup({
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', token);
+            }
+        });
         var previous_rate = '<%=@pre_rate%>';
         console.log('previous_Rate ' + previous_rate)
         if (previous_rate > 0) {
@@ -120,7 +127,7 @@
             ;
             $.ajax(
                 {
-                    method: 'GET',
+                    method: 'POST',
                     url: '/rate',
                     data: {
                         rate: 1,
@@ -152,7 +159,7 @@
             } else {
                 $.ajax(
                     {
-                        method: 'GET',
+                        method: 'POST',
                         url: '/comment',
                         data: {
                             film_id: film_id,

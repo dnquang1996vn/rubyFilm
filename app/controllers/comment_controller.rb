@@ -1,6 +1,6 @@
 class CommentController < ApplicationController
 
-  def index
+  def create
     user_id = 100
     login = TRUE
     @film_id = params[:film_id]

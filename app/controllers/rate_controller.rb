@@ -1,5 +1,5 @@
 class RateController < ApplicationController
-  def index
+  def create
     @user_id = 100 #put here till login checking is completed
     @film_id = params[:film_id]
     @rate_point = params[:rate_point]
