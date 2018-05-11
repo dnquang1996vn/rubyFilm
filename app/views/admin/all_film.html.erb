@@ -27,10 +27,10 @@
 
               <% @genres = item.genres; %>
               <% @genres.each do |genre| %>
-                <% if genre != @genres[0] %>
+                <% if !(genre == @genres[0]) %>
                   <% puts '|'; %>
-                  <%= genre.name %>
                 <% end %>
+                <%= genre.name %>
               <% end %>
             </p>
             <div class="rating">
@@ -65,7 +65,7 @@
             <% if (item.trailer_path).present? %>
               <a href=" <%= item.trailer_path %>" class="btn btn-default">Watch Trailer</a>
             <% end %>
-            <a href="/admin/edit/film/<%=item.id%>" title="Click to edit" class="btn btn-default btn-success">Edit</a>
+            <a href="/admin/edit/film/<%= item.id %>" title="Click to edit" class="btn btn-default btn-success">Edit</a>
             <button title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="<%= item.id %>">Remove</button>
           </div>
         </div>
@@ -74,3 +74,4 @@
     </div>
   </section>
 </div>
+

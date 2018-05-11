@@ -74,7 +74,11 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/admin/all_film"><i class="fa fa-remove"></i> All Films</a></li>
+          <li>
+            <%= link_to ("/admin/all_film") do  %>
+              <i class="fa fa-remove">All Films</i>
+            <% end %>
+          </li>
         </ul>
       </li>
       <li class="treeview">
@@ -86,7 +90,10 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/admin/all_celebs"><i class="fa fa-remove"></i> All Profile</a></li>
+          <li>
+            <%= link_to ("/admin/all_celebs") do %>
+              <i class="fa fa-remove">All Profile</i>
+            <% end %>
         </ul>
       </li>
       <li class="treeview">
@@ -98,7 +105,11 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/admin/all_user"><i class="fa fa-circle"></i> All Users</a></li>
+          <li>
+            <%= link_to ("/admin/all_user") do %>
+              <i class="fa fa-circle">All Users</i>
+            <% end %>
+          </li>
         </ul>
       </li>
     </ul>

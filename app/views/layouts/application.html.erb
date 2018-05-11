@@ -47,9 +47,9 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <%= render 'admin/partials/menu' %>
+  <%= render '/admin/partials/menu' %>
   <%= yield %>
-  <%= render 'admin/partials/footer' %>
+  <%= render '/admin/partials/footer' %>
 </div>
 <%#= render 'layouts/menu' %>
 <%#= yield %>
@@ -70,16 +70,7 @@
 
 
 <!--for admin-->
-<script type="text/javascript">
-    var tokenCelebsUri = "{{route('celebsToken')}}";
-    var tokenGenreUri = "{{route('genreToken')}}";
-    var ajaxAddUri = "{{route('addUri')}}";
-    var ajaxEditUri = "{{route('editUri')}}";
-    var ajaxRemoveUri = "{{route('removeUri')}}";
-    var dashboardUri = "{{route('adminDashboard')}}";
-    var allFilmsUri = "{{route('allFilms')}}";
-    var allCelebsUri = "{{route('allCelebs')}}";
-</script>
+
 <!-- jQuery 3 -->
 <script src="/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

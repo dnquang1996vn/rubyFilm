@@ -37,7 +37,7 @@
                                     <label for="inputReleased3" class="col-sm-2 control-label">Released Date</label>
 
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control" id="inputReleased3" placeholder="Released Date" name="released_date" value="<%=@film.released_date_str %>">
+                                        <input type="date" class="form-control" id="inputReleased3" placeholder="Released Date" name="released_date" value="<%=@film.released_date %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,35 +57,35 @@
                                     <label for="inputImage3" class="col-sm-2 control-label">Image Path</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputImage3" placeholder="Image Path" name="img_url" value="{{$film['img_path']}}">
+                                        <input type="text" class="form-control" id="inputImage3" placeholder="Image Path" name="img_url" value="<%=@film.img_path %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputTrailer3" class="col-sm-2 control-label">Trailer Path</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputTrailer3" placeholder="Trailer Path" name="trailer_url" value="{{$film['trailer_path']}}">
+                                        <input type="text" class="form-control" id="inputTrailer3" placeholder="Trailer Path" name="trailer_url" value="<%=@film.trailer_path %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputLength3" class="col-sm-2 control-label">Length</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputLength3" placeholder="Length" name="length" value="{{$film['length']}}">
+                                        <input type="text" class="form-control" id="inputLength3" placeholder="Length" name="length" value="<%=@film.length %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputRate3" class="col-sm-2 control-label">Average Rate</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputRate3" placeholder="Average Rate" name="avg_rate" value="{{$film['avg_rate']}}">
+                                        <input type="text" class="form-control" id="inputRate3" placeholder="Average Rate" name="avg_rate" value="<%=@film.avg_rate %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputMat3" class="col-sm-2 control-label">Mature Rate</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputMat3" placeholder="Mature Rate" name="mat_rate" value="{{$film['mat_rate']}}">
+                                        <input type="text" class="form-control" id="inputMat3" placeholder="Mature Rate" name="mat_rate" value="<%=@film.mat_rate %>">
                                     </div>
                                 </div>
                                 <div class="form-group">

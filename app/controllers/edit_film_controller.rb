@@ -5,6 +5,6 @@ class EditFilmController < ApplicationController
     @film = Film.find(@film_id)
     @genres = @film.genres
     @actors = @film.actors
-    render "admin/edit/edit_film"
+    render "admin/edit/edit_film/"
   end
 end

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'admin/all_celebs', to: 'all_celebs#show'
   get 'admin/add/film', to: 'add_film#show'
   get 'admin/add/celeb', to: 'add_cebles#show'
-  get 'admin/edit/film', to: 'edit_film#show'
+  get 'admin/edit/film/:id', to: 'edit_film#show'
   get 'static_page/discover', to: 'static_page#discover_movies'
   get 'static_page/now_playing', to: 'static_page#now_playing'
   get 'static_page/popular', to: 'static_page#popular'
