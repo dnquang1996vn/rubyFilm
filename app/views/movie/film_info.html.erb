@@ -39,7 +39,7 @@
     </div>
     <div style="clear: both">
       <p class="highlight_text">Rate Info:</p>
-      <div id="rate_info">Rated 7 stars out of 169 reviews.
+      <div id="rate_info">Rated <%= @avg_rate %> stars out of <%= @num_of_rates %> reviews.
       </div>
     </div>
     <div class="outter_box">
@@ -87,7 +87,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     jQuery(document).ready(function () {
-        var previous_rate = '<%=@rate_info%>';
+        var previous_rate = '<%=@pre_rate%>';
         console.log('previous_Rate ' + previous_rate)
         if (previous_rate > 0) {
             $("#rate_noti").html("<p>You rated this film "+previous_rate+" stars</p>");
@@ -144,7 +144,42 @@
                     dataType: 'Json',
                 });
         });
-
+        $("#comment_btn").click(function () {
+            var comment_box = document.getElementById('comment').value;
+            var film_id = <%=@film.id %>;
+            if (comment_box.length < 20) {
+                swal("Something's wrong!", "Comment should be more than 20 characters!", "warning");
+            } else {
+                $.ajax(
+                    {
+                        method: 'GET',
+                        url: '/comment',
+                        data: {
+                            film_id: film_id,
+                            comment: comment_box
+                        },
+                        success: function (comment_add) {
+                            // console.log(comment_add)
+                            if (comment_add['added'] == 0) {
+                                swal("Sorry!", "You need to login before commenting this film!", "error");
+                                // window.location.href = "/login"
+                            }
+                            else {
+                                var all_comments = document.getElementById('all_comments');
+                                var old_comments = all_comments.innerHTML;
+                                var added_comment = "<div class='friend'>" +
+                                    "                        <h5 class=\"commenter\">" + comment_add['user_name'] + "</h5>" +
+                                    "                        <p class=\"comment_content\">" + comment_box + "</p>" +
+                                    "                    </div>";
+                                swal("Very good!", "Thank you for your comment!", "success");
+                                all_comments.innerHTML = added_comment + old_comments;
+                            }
+                        },
+                        dataType: 'Json',
+                    }
+                );
+            }
+        });
     })
 
 </script>
