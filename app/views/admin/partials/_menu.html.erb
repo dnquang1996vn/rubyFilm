@@ -75,7 +75,7 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <%= link_to ("/admin/all_film") do  %>
+            <%= link_to ("/admin/all_film"), method: :get do  %>
               <i class="fa fa-remove">All Films</i>
             <% end %>
           </li>
@@ -91,7 +91,7 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <%= link_to ("/admin/all_celebs") do %>
+            <%= link_to ("/admin/all_celebs"),  method: :get do %>
               <i class="fa fa-remove">All Profile</i>
             <% end %>
         </ul>
@@ -106,7 +106,7 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <%= link_to ("/admin/all_user") do %>
+            <%= link_to ("/admin/all_user"),  method: :get do %>
               <i class="fa fa-circle">All Users</i>
             <% end %>
           </li>

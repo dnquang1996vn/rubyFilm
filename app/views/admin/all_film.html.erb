@@ -65,6 +65,11 @@
             <% if (item.trailer_path).present? %>
               <a href=" <%= item.trailer_path %>" class="btn btn-default">Watch Trailer</a>
             <% end %>
+            <%# @params = (item.id).to_i %>
+
+            <%#= link_to ("/admin/edit/film/" ), @params , method: :get, class: "btn btn-default btn-success" do %>
+<!--              Edit-->
+            <%# end %>
             <a href="/admin/edit/film/<%= item.id %>" title="Click to edit" class="btn btn-default btn-success">Edit</a>
             <button title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="<%= item.id %>">Remove</button>
           </div>
