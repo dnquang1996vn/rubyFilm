@@ -18,7 +18,7 @@
           <div class="col-sm-8">
             <h4><a title="item.name"><%= item.name %></a></h4>
             <p>
-              <% if item.mat_rate %>
+              <% if item.mat_rate != "" %>
                 <img title="<%= item.mat_rate %>" alt="Certificate <%= item.mat_rate %>"
                      src="/assets/<%= item.mat_rate %>.png"/>
               <% end %>

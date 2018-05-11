@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :rate
   resources :people
   resources :comment
-  get 'movie/show'
+
   get 'static_page/index'
   get 'welcome/index'
   get 'admin', to: 'admin#new'
@@ -20,6 +20,5 @@ Rails.application.routes.draw do
   get 'static_page/people', to: 'static_page#people'
   get 'static_page/film_info', to: 'static_page#film_info'
 
-  get 'search/index', to: 'search#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
