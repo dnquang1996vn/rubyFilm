@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'admin', to: 'admin#new'
   get 'admin/all_film', to: 'all_film#show'
+  get 'admin/all_user', to: 'all_user#show'
   get 'static_page/discover', to: 'static_page#discover_movies'
   get 'static_page/now_playing', to: 'static_page#now_playing'
   get 'static_page/popular', to: 'static_page#popular'

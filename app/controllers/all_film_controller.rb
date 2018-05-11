@@ -1,6 +1,6 @@
 class AllFilmController < ApplicationController
   def show
     @film = Film.all
-    render "admin/allFilm"
+    render "admin/all_film"
   end
 end
