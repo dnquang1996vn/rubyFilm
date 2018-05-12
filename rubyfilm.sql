@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th5 12, 2018 lúc 04:13 PM
+-- Thời gian đã tạo: Th5 12, 2018 lúc 04:28 PM
 -- Phiên bản máy phục vụ: 5.7.22-0ubuntu0.16.04.1
 -- Phiên bản PHP: 7.1.17-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -2132,9 +2132,9 @@ INSERT INTO `celebs` (`id`, `name`, `dob`, `pob`, `gender`, `img_path`, `bio`) V
 --
 
 CREATE TABLE `comments` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `film_id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `film_id` int(11) NOT NULL,
   `comment` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2559,7 +2559,9 @@ INSERT INTO `comments` (`id`, `user_id`, `film_id`, `comment`) VALUES
 (414, 22, 155, 'I\'m going a dance to tell me to her, about his shoulder with her neck as she suddenly appeared on.'),
 (415, 95, 30, 'A little animals and this time she\'d have our best, For a tone of the time! Take your Majesty,\'.'),
 (416, 8, 150, 'The master was YOUR opinion,\' said the next thing to herself, \'because I\'m afraid,\' said the.'),
-(417, 98, 191, 'THAT direction,\' waving the fan and finding that case I can\'t possibly hear the middle, wondering.');
+(417, 98, 191, 'THAT direction,\' waving the fan and finding that case I can\'t possibly hear the middle, wondering.'),
+(418, 100, 12, 'yfftyft'),
+(419, 100, 96, 'awesomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
 
 -- --------------------------------------------------------
 
@@ -3956,6 +3958,12 @@ ALTER TABLE `celebs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `director_film`
 --
 ALTER TABLE `director_film`
@@ -4000,6 +4008,11 @@ ALTER TABLE `wishlists`
 --
 ALTER TABLE `actor_film`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=972;
+--
+-- AUTO_INCREMENT cho bảng `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=420;
 --
 -- AUTO_INCREMENT cho bảng `director_film`
 --
