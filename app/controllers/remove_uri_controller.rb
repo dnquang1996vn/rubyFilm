@@ -6,7 +6,9 @@ class RemoveUriController < ApplicationController
     @user_id = params[:id]
     puts "hassssaha"
     puts @user_id
-    User.where(:id => @user_id).destroy_all
+
+    user = User.find_by(id: @user_id)
+    user.destroy
 
   end
 end
