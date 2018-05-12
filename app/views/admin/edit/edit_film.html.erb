@@ -125,6 +125,7 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             window.onload = function () {
+
                 if (typeof directors !== 'undefined' && typeof casts !== 'undefined' && typeof roles !== 'undefined' && typeof genres !== 'undefined') {
                     var director = JSON.parse(directors.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
                     var cast = JSON.parse(casts.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));

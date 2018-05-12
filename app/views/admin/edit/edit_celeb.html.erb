@@ -95,3 +95,44 @@
   </section>
   <!-- /.content -->
 </div>
+
+<script>
+    jQuery(document).ready(function () {
+        $('#editCelebSubmitChange').click(function () {
+            var name = document.getElementById("inputName3").value;
+            var img = document.getElementById("inputImage3").value;
+            var dob = document.getElementById("inputDOB3").value;
+            var pob = document.getElementById("inputPOB3").value;
+            var bio = document.getElementById("inputBio3").value;
+            var gender = parseInt($('#inputGender3').val(), 10);
+            var celeb_id = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/edit_celeb_process',
+                type: 'GET',
+                data: {
+                    celeb_id: celeb_id,
+                    name: name,
+                    img_path: img,
+                    dob: dob,
+                    pob: pob,
+                    bio: bio,
+                    gender: gender
+                },
+                contentType: "application/x-www-form-urlencoded",
+
+                success: function () {
+                    alert("Profile of " + name + " was successfully edited!");
+                    window.location.href = '/admin/all_celebs';
+                },
+                error: function () {
+                    alert("Error!!!!");
+                }
+            });
+        });
+    })
+</script>

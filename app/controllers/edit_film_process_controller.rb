@@ -1,0 +1,2 @@
+class EditFilmProcessController < ApplicationController
+end

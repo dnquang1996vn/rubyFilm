@@ -1,7 +1,4 @@
 class AddCelebProcessController < ApplicationController
-
-  def index
-
     def index
 
       @name = params[:name]
@@ -22,5 +19,4 @@ class AddCelebProcessController < ApplicationController
 
       celeb.save
     end
-  end
 end
