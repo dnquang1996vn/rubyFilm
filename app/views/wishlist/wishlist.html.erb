@@ -1,0 +1,53 @@
+<section class="bg-primary" id="popular">
+  <div class="container">
+    <h2 class="margin-top-1 margin-bottom-1 text-primary">Wish List</h2>
+    <% @films.each do |film| %>
+      <div class="col-sm-6 table-bordered movie-item">
+        <div class="col-sm-4">
+          <% if film.img_path.present? %>
+            <img src="<%= film.img_path%>" alt="<%= film.name%>" width="140" height="209">
+          <% else%>
+            <img src="assets/movie-placeholder.png" alt="<% film.name%>" width="140" height="209">
+          <% end%>
+        </div>
+        <div class="col-sm-8">
+          <h4><a title="<%= film.name%>"
+                 href="/movie/<%=film.id%>"><%=film.name%></a></h4>
+          <p>
+            <% if film.mat_rate.present? %>
+              <img title="<%=film.mat_rate%>" alt="Certificate <%=film.mat_rate%>"
+                   src="/assets/<%=film.mat_rate%>.png">
+            <%end%>
+            <%if film.length.present?%>
+              <time><%=film.length%> min</time>
+              <span>-</span>
+            <%end%>
+            <% film.genres.each do |genre|%>
+              <% if(genre != film.genres[0])%>
+                <%="|"%>
+              <%end%>
+              <%=genre.name%>
+            <%end%>
+          </p>
+          <div>Avarage rating: <%=film.avg_rate%>/10</div>
+          <% if film.directors[0].present?%>
+            <h5>Director:
+              <% film.directors.each do |director|%>
+                <a class="text-primary" href="/people/<%=director.id%>">
+                  <%=director.name%></a></h5>
+              <%end%>
+          <%end%>
+          <h5>Stars:
+            <% film.actors.first(3).each do |actor|%>
+              <a class="text-primary" href="/people/<%=actor.id%>"><%=actor.name%></a>
+            <%end%>
+          </h5>
+          <%if film.trailer_path.present?%>
+            <a href="<%=film.trailer_path%>" class="btn btn-default">Watch Trailer</a>
+          <%end%>
+          <button title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="<%= film.id %>>">Remove</button>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</section>

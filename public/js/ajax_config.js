@@ -1,8 +1,8 @@
-jQuery(document).ready(function () {
-    var token = $('meta[name="csrf-token"]').attr('content');
-    $.ajaxSetup({
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('X-CSRF-Token', token);
-        }
-    });
-}
+// jQuery(document).ready(function () {
+//     var token = $('meta[name="csrf-token"]').attr('content');
+//     $.ajaxSetup({
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader('X-CSRF-Token', token);
+//         }
+//     });
+// }

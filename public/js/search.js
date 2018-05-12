@@ -12,7 +12,7 @@
             }
             if(query.length >= 2){
                 $("#response").show();
-                console.log(query);
+                // console.log(query);
                 $.ajax(
                     {
                         url: '/search',
@@ -42,8 +42,8 @@
                                 }
                             }
                             response = response + "</ul>";
-                            console.log("length 1 "+data[0].length);
-                            console.log("length 2 "+data[1].length);
+                            // console.log("length 1 "+data[0].length);
+                            // console.log("length 2 "+data[1].length);
 
                             $("#response").html(response);
                         },
@@ -56,10 +56,11 @@
         });
     });
 
-$(window).click(function () {
-    console.log('aaaaa');
-    document.getElementById('ulSearch').style.display = "none";
-});
+    $(window).click(function () {
+        if ($("#ulSearch").length > 0){
+            document.getElementById('ulSearch').style.display = "none";
+        }
+    });
 
 $('#search_bar').click(function (event) {
     event.stopPropagation();

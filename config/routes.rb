@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :rate
   resources :people
   resources :comment
+  resources :wishlist
   get 'static_page/index'
   get 'welcome/index'
   get 'static_page/discover', to: 'static_page#discover_movies'
