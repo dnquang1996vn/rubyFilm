@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'popular/index'
+  get 'top_rated/index'
+  get 'now_playing/index'
+  get 'popular/index', to: 'popular#index'
   root to: 'welcome#index'
+
   resources :movie
   resources :search
   resources :rate
