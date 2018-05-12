@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :change_role
   resources :remove_film
   resources :remove_celeb
+  resources :add_celeb_process
 
   get 'static_page/index'
   get 'welcome/index'

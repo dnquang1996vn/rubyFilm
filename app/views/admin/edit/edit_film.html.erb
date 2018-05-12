@@ -123,9 +123,38 @@
         <!-- /.content -->
     </div>
     <script type="text/javascript">
-        var directors = "{{$film['directors']}}";
-        var roles = "{{$film['roles']}}";
-        var casts = "{{$film['casts']}}";
-        var genres = "{{$film['genres']}}";
-        var film_id = "{{$film['id']}}";
+        jQuery(document).ready(function () {
+            window.onload = function () {
+                if (typeof directors !== 'undefined' && typeof casts !== 'undefined' && typeof roles !== 'undefined' && typeof genres !== 'undefined') {
+                    var director = JSON.parse(directors.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
+                    var cast = JSON.parse(casts.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
+                    var role = JSON.parse(roles.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
+                    var genre = JSON.parse(genres.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
+                    for (var k = 0; k < genre.length; k++) {
+                        var str = "<li class='token-input-token-facebook'><p>" + genre[k] + "</p><span class='token-input-delete-token-facebook'>×</span></li>";
+                        $('#edit-film').find('#genre3 ul.token-input-list-facebook').prepend(str);
+                    }
+                    for (k = 0; k < director.length; k++) {
+                        var str1 = "<li class='token-input-token-facebook'><p>" + director[k] + "</p><span class='token-input-delete-token-facebook'>×</span></li>";
+                        $('#edit-film').find('#director3 ul.token-input-list-facebook').prepend(str1);
+                    }
+                    for (k = 0; k < cast.length; k++) {
+                        i++;
+                        var str2 = "<label for='inputCast" + i + "' class='col-sm-2 control-label'></label>" +
+                            "<div class='col-sm-10' id='cast" + i + "' style='align-content: center'>" +
+                            "<input type='text' class='form-control' id='inputCast" + i + "' placeholder='Cast' name='cast'>" +
+                            "<span style='display: inline-flex;margin: 10px'>AS</span>" +
+                            "<input type='text' class='role" + i + "' width='300px' style='display: inline-flex'></div><br>";
+                        $(str2).appendTo('#cast-form');
+                        $("#inputCast" + i).tokenInput(tokenCelebsUri);
+                        $('#cast' + i).find("ul").addClass("cast");
+                        var str3 = "<li class='token-input-token-facebook'><p>" + cast[k] + "</p><span class='token-input-delete-token-facebook'>×</span></li>";
+                        $('#edit-film').find('#cast' + i + ' ul.token-input-list-facebook').prepend(str3);
+                        $('.role' + i).val(role[k]);
+                    }
+                }
+
+            };
+        })
+
     </script>
