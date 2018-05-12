@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/css/ionicons.min.css"/>
 
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!--  !admin-->
   <!--  <link rel="stylesheet" href="/css/animate.min.css"/>-->
   <!--  <link rel="stylesheet" href="/css/styles.css"/>-->
@@ -71,6 +71,17 @@
 
 <!--for admin-->
 
+<script type="text/javascript">
+    var tokenCelebsUri = "{{route('celebsToken')}}";
+    var tokenGenreUri = "{{route('genreToken')}}";
+    var ajaxAddUri = "{{route('addUri')}}";
+    var ajaxEditUri = "{{route('editUri')}}";
+    var ajaxRemoveUri = "{{route('removeUri')}}";
+    var dashboardUri = "{{route('adminDashboard')}}";
+    var allFilmsUri = "{{route('allFilms')}}";
+    var allCelebsUri = "{{route('allCelebs')}}";
+</script>
+
 <!-- jQuery 3 -->
 <script src="/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -112,7 +123,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
-<script src="/js/admin.js"></script>
+<!--<script src="/js/admin.js"></script>-->
 </body>
 
 </html>

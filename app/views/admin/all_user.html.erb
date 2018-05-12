@@ -64,3 +64,34 @@
     </div>
   </section>
 </div>
+
+<script>
+    jQuery(document).ready(function () {
+        $('button#button_remove_user').click(function () {
+            var user_id = $(this).val();
+            var self = this;
+            if (confirm('Are you sure you want to delete this user?')) {
+                $.ajax({
+                    url: '/remove_uri',
+                    method: 'GET',
+                    data: {
+                        id: user_id
+                    },
+                    dataType: 'Json',
+                    success: function () {
+                        $(self).parent().parent().hide('slow', function () {
+                            $(self).parent().parent().remove();
+                        });
+                    },
+                    error: function () {
+                        alert("Delete Error!");
+                        $(self).parent().parent().hide('slow', function () {
+                            $(self).parent().parent().remove();
+                        });
+                    }
+
+                });
+            }
+        });
+    })
+</script>

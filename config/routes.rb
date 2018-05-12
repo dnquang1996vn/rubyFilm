@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :rate
   resources :people
   resources :comment
+  resources :remove_uri
 
   get 'static_page/index'
   get 'welcome/index'
