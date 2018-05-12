@@ -1,0 +1,2 @@
+module TopRatedHelper
+end
