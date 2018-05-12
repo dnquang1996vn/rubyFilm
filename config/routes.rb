@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'people/index'
   get 'up_coming/index'
   get 'top_rated/index'
   get 'now_playing/index'
-  get 'popular/index', to: 'popular#index'
+  get 'popular/index'
   root to: 'welcome#index'
 
   resources :movie

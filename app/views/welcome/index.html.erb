@@ -4,40 +4,39 @@
       <h2 class="margin-top-1 text-primary">On Popular Nowadays</h2>
       <hr class="primary">
       <div class="pop_film">
-
         <div class="info-first">
-          <a href="">
-            <img src="/images/snowden.png" width="100%">
+         <a href="/movie/<%= @popular_films[0].id%>">
+            <img src="<%= @popular_films[0].img_path%>" width="100%">
           </a>
-          <a class="text" href="">
+          <a class="text" href="/movie/<%= @popular_films[0].id%>">
             <div class="bottom-left">
-              <h3 class="text">Snowden</h3>
+              <h3 class="text"><%= @popular_films[0].name%></h3>
               <p class="text">
-                Joseph Gordon-Levitt
+                <%= @popular_films[0].actors[0].name%>,<%= @popular_films[0].actors[1].name%>
               </p></div>
           </a>
         </div>
         <div class="info-second">
-          <a href="">
-            <img src="/images/Yasuo1.jpg" height="100%" width="100%">
+          <a href="/movie/<%= @popular_films[1].id%>">
+            <img src="<%= @popular_films[1].img_path%>" height="100%" width="100%">
           </a>
-          <a class="text" href="">
+          <a class="text" href="/movie/<%= @popular_films[1].id%>">
             <div class="bottom-left">
-              <h3 class="text">Daxua</h3>
+              <h3 class="text"><%= @popular_films[1].name%></h3>
               <p class="text">
-                Daxua, Ganktem
+                                <%= @popular_films[1].actors[0].name%>,<%= @popular_films[1].actors[1].name%>
               </p></div>
           </a>
         </div>
         <div class="info-third">
-          <a href="">
-            <img src="/images/Yasuo2.jpg" height="100%" width="100%">
+          <a href="/movie/<%= @popular_films[2].id%>">
+            <img src="<%= @popular_films[2].img_path%>" height="100%" width="100%">
           </a>
-          <a class="text" href="">
+          <a class="text" href="/movie/<%= @popular_films[2].id%>">
             <div class="bottom-left">
-              <h3 class="text">Daxua</h3>
+              <h3 class="text"><%= @popular_films[2].name%></h3>
               <p class="text">
-                Daxua, Ganktem
+                                <%= @popular_films[2].actors[0].name%>,<%= @popular_films[2].actors[1].name%>
               </p></div>
           </a>
         </div>
@@ -46,38 +45,38 @@
       <div class="pop_film">
 
         <div class="info-second">
-          <a href="">
-            <img src="/images/Yasuo1.jpg" height="100%" width="100%">
+          <a href="/movie/<%= @popular_films[3].id%>">
+            <img src="<%= @popular_films[3].img_path%>" height="100%" width="100%">
           </a>
-          <a class="text" href="">
+          <a class="text" href="/movie/<%= @popular_films[3].id%>">
             <div class="bottom-left">
-              <h3 class="text">Daxua</h3>
+              <h3 class="text"><%= @popular_films[3].name%></h3>
               <p class="text">
-                Daxua, Ganktem
+                                                <%= @popular_films[3].actors[0].name%>,<%= @popular_films[3].actors[1].name%>
               </p></div>
           </a>
         </div>
         <div class="info-third">
-          <a href="">
-            <img src="/images/Yasuo2.jpg" height="100%" width="100%">
+          <a href="/movie/<%= @popular_films[4].id%>">
+            <img src="<%= @popular_films[4].img_path%>" height="100%" width="100%">
           </a>
-          <a class="text" href="">
+          <a class="text" href="/movie/<%= @popular_films[4].id%>">
             <div class="bottom-left">
-              <h3 class="text">Daxua</h3>
+              <h3 class="text"><%= @popular_films[4].name%></h3>
               <p class="text">
-                Daxua, Ganktem
+                                                  <%= @popular_films[4].actors[0].name%>,<%= @popular_films[4].actors[1].name%>
               </p></div>
           </a>
         </div>
         <div class="info-first">
-          <a href="">
-            <img src="/images/snowden.png" width="100%">
+          <a href="/movie/<%= @popular_films[5].id%>">
+            <img src="<%= @popular_films[5].img_path%>" width="100%">
           </a>
-          <a class="text" href="">
+          <a class="text" href="/movie/<%= @popular_films[5].id%>">
             <div class="bottom-left">
-              <h3 class="text">Snowden</h3>
+              <h3 class="text"><%= @popular_films[5].name%></h3>
               <p class="text">
-                Joseph Gordon-Levitt
+                                                  <%= @popular_films[5].actors[0].name%>,<%= @popular_films[5].actors[1].name%>
               </p></div>
           </a>
         </div>
@@ -99,36 +98,36 @@
 
       <div class="col-lg-4 col-md-4 text-center">
         <div class="feature">
-          <a href="">
-            <img src="/images/rau.png" width="300px" height="400px">
-            <h3 class="text">Rau sach.</h3>
+          <a href="/movie/<%= @recent_films[0].id%>">
+            <img src="<%= @recent_films[0].img_path%>" width="300px" height="400px">
+            <h3 class="text"><%= @recent_films[0].name%></h3>
           </a>
-          <a href="">
-            <p class="text-muted">Tokuda</p>
-          </a>
-
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 text-center">
-        <div class="feature">
-          <a href="">
-            <img src="/images/wupeii.jpg" width="300px" height="400px">
-            <h3 class="text">Rau sach.</h3>
-          </a>
-          <a href="">
-            <p class="text-muted">Tokuda</p>
+          <a href="/movie/<%= @recent_films[0].id%>">
+            <p class="text-muted"><%= @recent_films[0].directors[0].name%></p>
           </a>
 
         </div>
       </div>
       <div class="col-lg-4 col-md-4 text-center">
         <div class="feature">
-          <a href="">
-            <img src="/images/wupeii.jpg" width="300px" height="400px">
-            <h3 class="text">Rau sach.</h3>
+          <a href="/movie/<%= @recent_films[1].id%>">
+            <img src="<%= @recent_films[1].img_path%>" width="300px" height="400px">
+            <h3 class="text"><%= @recent_films[1].name%></h3>
           </a>
-          <a href="">
-            <p class="text-muted">Tokuda</p>
+          <a href="/movie/<%= @recent_films[1].id%>">
+            <p class="text-muted"><%= @recent_films[1].directors[0].name%></p>
+          </a>
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 text-center">
+        <div class="feature">
+          <a href="/movie/<%= @recent_films[2].id%>">
+            <img src="<%= @recent_films[2].img_path%>" width="300px" height="400px">
+            <h3 class="text"><%= @recent_films[2].name%></h3>
+          </a>
+          <a href="/movie/<%= @recent_films[2].id%>">
+            <p class="text-muted"><%= @recent_films[2].directors[0].name%></p>
           </a>
 
         </div>
