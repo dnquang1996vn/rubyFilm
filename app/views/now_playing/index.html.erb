@@ -4,7 +4,7 @@
         <% @films.each do |film| %>
         <div class="col-sm-6 table-bordered movie-item">
             <div class="col-sm-4">
-                    <% if film.img_path.present?%>
+                    <% if film.img_path.present? %>
                    <img src="<%= film.img_path%>" alt="<%= film.name%>" width="140" height="209">
                     <% else%>
                     <img src="assets/movie-placeholder.png" alt="<% film.name%>" width="140" height="209">
