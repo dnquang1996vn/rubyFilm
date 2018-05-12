@@ -123,3 +123,77 @@
   </section>
   <!-- /.content -->
 </div>
+
+<script>
+    jQuery(document).ready(function () {
+        $('#addFilmSubmitChange').click(function () {
+            var tokenDir = $('#director3').find("ul").text();
+            var directors = tokenDir.split('×');
+            var tokenGenre = $('#genre3').find("ul").text();
+            var genre = tokenGenre.split('×');
+            var j;
+            var roles = [];
+            var casts = [];
+            for (j = 3; j < i + 1; j++) {
+                var role = document.getElementsByClassName("role" + j)[0].value;
+                var tokenCast = $('#cast' + j).find("ul").text();
+                var cast = tokenCast.split('×');
+
+                if (role && cast[0]) {
+                    roles.push(role);
+                    casts.push(cast[0]);
+                } else if (role == '' && cast[0] == '') {
+                    continue;
+                } else {
+                    alert("Both fields need to be filled!");
+                    return;
+                }
+            }
+            var name = document.getElementById("inputName3").value;
+            var released_date = document.getElementById("inputReleased3").value;
+            var description = document.getElementById("inputDescription3").value;
+            var img = document.getElementById("inputImage3").value;
+            var trailer = document.getElementById("inputTrailer3").value;
+            var length = document.getElementById("inputLength3").value;
+            var rate = document.getElementById("inputRate3").value;
+            var mat = document.getElementById("inputMat3").value;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            if (name != '' && released_date != '' && description != '' && img != '' && rate != '' && directors != '' && genre != '' && casts != '' && roles != '') {
+                $.ajax({
+                    url: '/add_film_process',
+                    datatType: 'json',
+                    type: 'GET',
+                    data: {
+                        name: name,
+                        released_date: released_date,
+                        genre: genre,
+                        description: description,
+                        img: img,
+                        trailer: trailer,
+                        length: length,
+                        rate: rate,
+                        mat: mat,
+                        directors: directors,
+                        casts: casts,
+                        roles: roles
+                    },
+                    contentType: "application/x-www-form-urlencoded",
+
+                    success: function () {
+                        alert("Film " + name + " was successfully added to database!");
+                        window.location.href = '/admin/all_film';
+                    },
+                    error: function () {
+                        alert("Error!!!!");
+                    }
+                });
+            } else {
+                alert("Please complete all fields!");
+            }
+        });
+    })
+</script>
