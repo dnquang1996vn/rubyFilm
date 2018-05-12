@@ -1,0 +1,2 @@
+module RemoveFilmHelper
+end

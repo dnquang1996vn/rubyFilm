@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :comment
   resources :remove_uri
   resources :change_role
+  resources :remove_film
 
   get 'static_page/index'
   get 'welcome/index'
