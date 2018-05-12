@@ -30,9 +30,9 @@
                           <td> <%= item.name %></td>
                           <td> <%= item.email %></td>
                           <% if item.role == 'admin' %>
-                            <td id="role"><span class="label label-success"><%= item.role %></span></td>
+                            <td ><span id="role" class="label label-success"><%= item.role %></span></td>
                           <% else %>
-                            <td id="role"><span class="label label-warning"><%= item.role %></span></td>
+                            <td><span  id="role" class="label label-warning"><%= item.role %></span></td>
                           <% end %>
                           <td><%= item.created_at %></td>
                           <td>
@@ -90,6 +90,33 @@
                         });
                     }
 
+                });
+            }
+        });
+
+        $('button#button_role_user').click(function () {
+            var user_id = $(this).val();
+            var role = $('#role').text();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            if (confirm('Are you sure you want to change role of this user?')) {
+                $.ajax({
+                    url: '/change_role',
+                    type: 'GET',
+                    data: {
+                        user_id: user_id,
+                        role: role
+                    },
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function () {
+                        window.location.reload();
+                    },
+                    error: function () {
+                        alert("Change role failed!");
+                    }
                 });
             }
         });

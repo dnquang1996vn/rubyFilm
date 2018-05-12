@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :people
   resources :comment
   resources :remove_uri
+  resources :change_role
 
   get 'static_page/index'
   get 'welcome/index'
