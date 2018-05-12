@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'popular/index'
   root to: 'welcome#index'
   resources :movie
   resources :search
