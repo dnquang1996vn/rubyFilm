@@ -36,15 +36,3 @@ class AddFilmProcessController < ApplicationController
   end
 
 end
-name: name,
-    released_date: released_date,
-    genre: genre,
-    description: description,
-    img: img,
-    trailer: trailer,
-    length: length,
-    rate: rate,
-    mat: mat,
-    directors: directors,
-    casts: casts,
-    roles: roles
