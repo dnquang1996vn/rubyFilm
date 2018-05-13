@@ -30,6 +30,7 @@
                                     <label for="inputName3" class="col-sm-2 control-label">Name</label>
 
                                     <div class="col-sm-10">
+                                      <input type="hidden" class="form-control" id="inputId3" placeholder="id" name="id" value="<%= @film.id %>">
                                         <input type="text" class="form-control" id="inputName3" placeholder="Name" name="name" value="<%=@film.name %>">
                                     </div>
                                 </div>
@@ -40,12 +41,7 @@
                                         <input type="date" class="form-control" id="inputReleased3" placeholder="Released Date" name="released_date" value="<%=@film.released_date %>">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputGenre3" class="col-sm-2 control-label">Genre</label>
-                                    <div class="col-sm-10" id="genre3">
-                                        <input type="text" class="form-control" id="inputGenre3" placeholder="Genre" name="genre">
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <label for="inputDescription3" class="col-sm-2 control-label">Description</label>
 
@@ -74,37 +70,6 @@
                                         <input type="text" class="form-control" id="inputLength3" placeholder="Length" name="length" value="<%=@film.length %>">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputRate3" class="col-sm-2 control-label">Average Rate</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputRate3" placeholder="Average Rate" name="avg_rate" value="<%=@film.avg_rate %>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputMat3" class="col-sm-2 control-label">Mature Rate</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputMat3" placeholder="Mature Rate" name="mat_rate" value="<%=@film.mat_rate %>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputDirector3" class="col-sm-2 control-label">Directors</label>
-
-                                    <div class="col-sm-10" id="director3">
-                                        <input type="text" class="form-control" id="inputDirector3" placeholder="Directors" name="director">
-                                    </div>
-                                </div>
-                                <div class="form-group" id="cast-form">
-                                    <label for="inputCast3" class="col-sm-2 control-label">Casts</label>
-
-                                    <div class="col-sm-10" id="cast3">
-                                        <input type="text" class="form-control" id="inputCast3" placeholder="Cast" name="cast">
-                                        <span style="display: inline-flex;margin: 7px">AS</span>
-                                        <input type="text" class="role3" style="display: inline-flex">
-                                        <button type="button" class="btn btn-default" style="margin-left: 10px"><i class="fa fa-plus-circle"></i></button>
-                                    </div>
-                                </div>
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
@@ -124,38 +89,51 @@
     </div>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            window.onload = function () {
+            $('#editFilmSubmitChange').click(function () {
 
-                if (typeof directors !== 'undefined' && typeof casts !== 'undefined' && typeof roles !== 'undefined' && typeof genres !== 'undefined') {
-                    var director = JSON.parse(directors.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
-                    var cast = JSON.parse(casts.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
-                    var role = JSON.parse(roles.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
-                    var genre = JSON.parse(genres.replace(/&quot;/g, '"').replace(/&#039;/g, "'"));
-                    for (var k = 0; k < genre.length; k++) {
-                        var str = "<li class='token-input-token-facebook'><p>" + genre[k] + "</p><span class='token-input-delete-token-facebook'>×</span></li>";
-                        $('#edit-film').find('#genre3 ul.token-input-list-facebook').prepend(str);
+                var film_id = document.getElementById("inputId3").value;
+                var name = document.getElementById("inputName3").value;
+                var released_date = document.getElementById("inputReleased3").value;
+                var description = document.getElementById("inputDescription3").value;
+                var img = document.getElementById("inputImage3").value;
+                var trailer = document.getElementById("inputTrailer3").value;
+                var length = document.getElementById("inputLength3").value;
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                    for (k = 0; k < director.length; k++) {
-                        var str1 = "<li class='token-input-token-facebook'><p>" + director[k] + "</p><span class='token-input-delete-token-facebook'>×</span></li>";
-                        $('#edit-film').find('#director3 ul.token-input-list-facebook').prepend(str1);
-                    }
-                    for (k = 0; k < cast.length; k++) {
-                        i++;
-                        var str2 = "<label for='inputCast" + i + "' class='col-sm-2 control-label'></label>" +
-                            "<div class='col-sm-10' id='cast" + i + "' style='align-content: center'>" +
-                            "<input type='text' class='form-control' id='inputCast" + i + "' placeholder='Cast' name='cast'>" +
-                            "<span style='display: inline-flex;margin: 10px'>AS</span>" +
-                            "<input type='text' class='role" + i + "' width='300px' style='display: inline-flex'></div><br>";
-                        $(str2).appendTo('#cast-form');
-                        $("#inputCast" + i).tokenInput(tokenCelebsUri);
-                        $('#cast' + i).find("ul").addClass("cast");
-                        var str3 = "<li class='token-input-token-facebook'><p>" + cast[k] + "</p><span class='token-input-delete-token-facebook'>×</span></li>";
-                        $('#edit-film').find('#cast' + i + ' ul.token-input-list-facebook').prepend(str3);
-                        $('.role' + i).val(role[k]);
-                    }
+                });
+
+                console.log(film_id ,name, released_date, description, img, trailer, length);
+                if(film_id != '' && name != '' && released_date != '' && description != '' && img != '') {
+                    $.ajax({
+                        url: '/edit_film_process',
+                        datatType: 'json',
+                        type: 'GET',
+                        data: {
+                            film_id : film_id,
+                            name: name,
+                            released_date: released_date,
+                            description: description,
+                            img: img,
+                            trailer: trailer,
+                            length: length,
+                        },
+                        contentType: "application/x-www-form-urlencoded",
+
+                        success: function () {
+                            alert("Film " + name + " was successfully edited!");
+                            window.location.href = '/admin/all_film';
+                        },
+                        error: function () {
+                            alert("Error!!!!");
+                        }
+                    });
+                } else {
+                    alert("Please complete all fields!");
                 }
-
-            };
+            });
         })
 
     </script>

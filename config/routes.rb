@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   resources :remove_celeb
   resources :add_celeb_process
   resources :edit_celeb_process
+  resources :edit_film_process
   resources :add_film_process
   resources :wishlist
-  
+
   get 'static_page/index'
   get 'welcome/index'
   get 'admin', to: 'admin#new'
