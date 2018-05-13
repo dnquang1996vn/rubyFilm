@@ -46,9 +46,9 @@
                 <%= item.description %>
               <% end %>
             <h5>Director:
-              <!--              <a class="text-primary" href="/people/">-->
-              <%# @directors = item.directors; %>
-              <!--                <%#= @directors[0]['name'] %></a>-->
+              <a class="text-primary" href="/people/">
+                <% @directors = item.actors; %>
+                <%= @directors[0]['name'] %></a>
             </h5>
             <h5>Stars:
               <% $i = 0 %>
@@ -68,7 +68,7 @@
             <%# @params = (item.id).to_i %>
 
             <%#= link_to ("/admin/edit/film/" ), @params , method: :get, class: "btn btn-default btn-success" do %>
-<!--              Edit-->
+            <!--              Edit-->
             <%# end %>
             <a href="/admin/edit/film/<%= item.id %>" title="Click to edit" class="btn btn-default btn-success">Edit</a>
             <button title="Click to remove" id="button_remove_film" class="btn btn-default btn-danger" value="<%= item.id %>">Remove</button>
