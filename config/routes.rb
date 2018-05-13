@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'discover_movies/index'
+  get 'discover_movies/show' ,to: 'discover_movies#show'
   get 'people/index'
   get 'up_coming/index'
   get 'top_rated/index'

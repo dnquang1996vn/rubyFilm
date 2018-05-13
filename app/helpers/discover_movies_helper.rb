@@ -1,0 +1,2 @@
+module DiscoverMoviesHelper
+end
