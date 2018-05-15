@@ -44,9 +44,9 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   #pagination
-   gem 'kaminari'
+   # gem 'kaminari'
 	#pagination interface
-	 gem 'bootstrap-kaminari-views'
+	 # gem 'bootstrap-kaminari-views'
 end
 
 group :test do

@@ -90,6 +90,63 @@
     <input type="hidden" id="film_id" value="<%= @film.id %>">
 
   </div>
+  <div style="clear: both">
+    <%# if @suggest_films.present? %>
+    <div class="films_concern" style="margin-top: 50px">
+      <p class="fimls_concern_title">
+        May be you are interested?
+      </p>
+      <div class="detail_line"></div>
+      <div class="list_films_concern" id="dtaildkms" style="width: 940px; height: 250px; position: relative; overflow: hidden;">
+        <div class="sl" style="position: absolute; width: 940px; height: 250px; display: block;">
+          <%  %>
+          <% @suggest_films_1.each do |suggest_film| -%>
+          <div class="film">
+            <a href="/movie/<%=suggest_film.id %>" class="tooltipPLQL">
+              <img src="<%=suggest_film.img_path %>" title="<%=suggest_film.name %>" width="134" height="193">
+            </a>
+            <a href="/movie/<%=suggest_film.id %>" title="<%=suggest_film.name %>">
+              <figcaption><%=suggest_film.name %></figcaption>
+            </a>
+          </div>
+            <% end %>
+        </div>
+        <div class="sl" style="position: absolute; width: 940px; height: 250px;">
+          <% @suggest_films_2.each do |suggest_film| -%>
+          <div class="film">
+            <a href="/movie/<%=suggest_film.id %>" class="tooltipPLQL">
+              <img src="<%=suggest_film.img_path %>" title="<%=suggest_film.name %>" width="134" height="193">
+            </a>
+            <a href="/movie/<%=suggest_film.id %>" title="<%=suggest_film.name %>">
+              <figcaption><%=suggest_film.name %></figcaption>
+            </a>
+          </div>
+          <%# end %>
+        </div>
+      </div>
+      <a href="#" id="fssPlayPause">Play</a>
+      <ul id="fssList">
+        <li class="fssLi0 fssActive"><a href="#">1</a></li>
+        <li class="fssLi1"><a href="#">2</a></li>
+        <li class="fssLi2"><a href="#">3</a></li>
+      </ul>
+      <a href="" class="arrow_preview" id="fssPrev"></a>
+      <a href="" class="arrow_next" id="fssNext"></a>
+      <style>
+        #fssList {
+          display: none;
+        }
+
+        #fssPlayPause {
+          display: none;
+        }
+      </style>
+    </div>
+      <% end %>
+  </div>
+
+
 </section>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <script src="/js/film_info.js" type="text/javascript"></script>
+

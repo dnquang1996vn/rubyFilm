@@ -709,3 +709,42 @@ img::-moz-selection {
     float: left;
     padding-right: 30px;
 }
+
+.films_concern{
+    float:left;
+    background:#111;
+    width:988px;
+    height:320px;
+    border-radius:4px;
+    position: relative;
+}
+.fimls_concern_title{
+    float:left;
+    color:#ccc;
+    font-weight:bold;
+    margin:10px 16px;
+}
+a.fimls_concern_title:hover{
+    color:#933233
+}
+.list_films_concern{
+    float: left;
+    width: 988px;
+    padding-top: 18px;
+    margin-left: 36px;
+    height:286px;
+}
+
+.detail_line{
+    float:left;
+    width:100%;
+    height:0px;
+    border-top:1px solid #000;
+    border-bottom:1px solid #222;
+}
+.film{background: #111;}
+.film{position:relative;float:left;margin-right:22px;width:134px;height:268px;}
+.arrow_next{position:absolute;top:50%;margin-top:-30px;right:-1px;background:#666 url( 'http://pubvn.net/movie/images/images_index_new/next-back.png');background-position:-80px 0px;width:26px;height:60px;z-index:10;border-radius:4px 0 0 4px;}
+.arrow_next:hover{background-position:-133px 0px;}
+.arrow_preview{position:absolute;top:50%;margin-top:-30px;left:-1px;background:#666 url( 'http://pubvn.net/movie/images/images_index_new/next-back.png');background-position:-53px 0;float:left;width:26px;height:60px;border-radius:0 4px 4px 0;}
+.arrow_preview:hover{background-position:-106px 0;}

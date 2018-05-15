@@ -7,6 +7,7 @@ class MovieController < ApplicationController
     @actors = @film.actors
     @pre_rate, @avg_rate, @num_of_rates = get_rating_info(@film_id, user_id);
     @comments = get_comments_of_film(@film_id)
+    @suggest_films_1, @suggest_films_2 = get_suggest_films(@film_id)
     render 'movie/film_info'
   end
 end

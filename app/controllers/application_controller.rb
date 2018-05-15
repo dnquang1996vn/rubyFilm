@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
     end
     return @comments
   end
+
+  def get_suggest_films(film_id)
+    genresIDs = Film.find(film_id).genres.pluck('id');
+    suggest_films = Film.includes(:genres).where(genres:{ id: genresIDs }).take(12)
+    suggest_films_1 = suggest_films.slice(0,6)
+    suggest_films_2 = suggest_films.slice(6,12)
+    return suggest_films_1, suggest_films_2
+  end
 end
