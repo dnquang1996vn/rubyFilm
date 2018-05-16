@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   self.primary_key = 'id'
+  has_secure_password
 
   has_many :wishlists
   has_many :wishFilmlists, through: :wishlists, source: :film
