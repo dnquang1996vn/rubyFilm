@@ -748,3 +748,10 @@ a.fimls_concern_title:hover{
 .arrow_next:hover{background-position:-133px 0px;}
 .arrow_preview{position:absolute;top:50%;margin-top:-30px;left:-1px;background:#666 url( 'http://pubvn.net/movie/images/images_index_new/next-back.png');background-position:-53px 0;float:left;width:26px;height:60px;border-radius:0 4px 4px 0;}
 .arrow_preview:hover{background-position:-106px 0;}
+#fssList {
+          display: none;
+}
+
+#fssPlayPause {
+          display: none;
+}

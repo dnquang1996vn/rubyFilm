@@ -1,5 +1,6 @@
 <link type="text/css" rel="stylesheet" href="/css/rating-star.css">
 <section class="bg-primary">
+  <div class="container">
   <h2 class="margin-top-1 margin-bottom-1 text-primary">Movie Profile</h2>
   <div style="width: 40%; float:left;justify-content: center">
     <img src="<%=@film.img_path %>" class="img_bio_film">
@@ -91,7 +92,6 @@
 
   </div>
   <div style="clear: both">
-    <%# if @suggest_films.present? %>
     <div class="films_concern" style="margin-top: 50px">
       <p class="fimls_concern_title">
         May be you are interested?
@@ -99,7 +99,6 @@
       <div class="detail_line"></div>
       <div class="list_films_concern" id="dtaildkms" style="width: 940px; height: 250px; position: relative; overflow: hidden;">
         <div class="sl" style="position: absolute; width: 940px; height: 250px; display: block;">
-          <%  %>
           <% @suggest_films_1.each do |suggest_film| -%>
           <div class="film">
             <a href="/movie/<%=suggest_film.id %>" class="tooltipPLQL">
@@ -121,7 +120,7 @@
               <figcaption><%=suggest_film.name %></figcaption>
             </a>
           </div>
-          <%# end %>
+          <% end %>
         </div>
       </div>
       <a href="#" id="fssPlayPause">Play</a>
@@ -130,23 +129,21 @@
         <li class="fssLi1"><a href="#">2</a></li>
         <li class="fssLi2"><a href="#">3</a></li>
       </ul>
-      <a href="" class="arrow_preview" id="fssPrev"></a>
-      <a href="" class="arrow_next" id="fssNext"></a>
-      <style>
-        #fssList {
-          display: none;
-        }
-
-        #fssPlayPause {
-          display: none;
-        }
-      </style>
+    <!--   <a href class="arrow_preview" id="fssPrev"></a>
+      <a href class="arrow_next" id="fssNext"></a> -->
     </div>
-      <% end %>
   </div>
-
+</div>
 
 </section>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="/js/fadeSlideShow.js"></script>
 <script src="/js/film_info.js" type="text/javascript"></script>
-
+<script type="text/javascript">
+    $('#dtaildkms').fadeSlideShow({
+            width: 940,
+            height:250,
+            interval: 6000,
+            speed : 500
+    });
+</script>
