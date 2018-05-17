@@ -2,9 +2,7 @@ class WishlistController < ApplicationController
   def index
     user_id = 100
     @films = User.find(user_id).wishFilmlists
-
     # @wishlist = Wishlist.where("user_id = ?","#{user_id}")
-
     render 'wishlist/wishlist'
   end
 
@@ -30,6 +28,5 @@ class WishlistController < ApplicationController
     respond_to do |format|
       format.json {render json: @command_code}
     end
-
   end
 end
