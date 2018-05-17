@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   def get_rating_info(film_id, user_id)
     @rate_info = Rate.where("film_id = ? AND user_id = ?" , "#{film_id}", "#{user_id}")
     @film = Film.find(film_id)

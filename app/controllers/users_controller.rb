@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.role = 'user'
     if @user.save
       flash[:success] = "Welcome to the Movie App!"
       redirect_to @user

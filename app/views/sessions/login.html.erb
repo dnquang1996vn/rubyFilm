@@ -5,14 +5,14 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="/login">
 
 
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control"
-                                           name="email" placeholder="Email" value=""
+                                           name="session[email]" placeholder="Email" value=""
                                            required autofocus>
 
 
@@ -26,7 +26,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                            class="form-control"
-                                           name="password" placeholder="Password" required>
+                                           name="session[password]" placeholder="Password" required>
 
 
                                     <span class="invalid-feedback">

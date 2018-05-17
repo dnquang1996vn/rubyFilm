@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   get "/signup",  to: "users#new"
   resources :users
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
 
   resources :movie
   resources :search
