@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   def show
     @user = User.find_by id: params[:id]
-    render "users/profile"
+    if @user.role == 'admin'
+      render "users/profile"
+    else
+      render "users/profile"
+    end
   end
 
   def new
@@ -22,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
