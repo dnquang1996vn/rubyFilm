@@ -1,9 +1,9 @@
 class RateController < ApplicationController
   def create
-    @user_id = 100 #put here till login checking is completed
+    @user_id = current_user.id #put here till login checking is completed
     @film_id = params[:film_id]
     @rate_point = params[:rate_point]
-    loggedin = true
+    loggedin = logged_in?
     if !loggedin
       @data = ["command_code" => 0, "avg_point" => 0, "rate_times" => 0]
     else

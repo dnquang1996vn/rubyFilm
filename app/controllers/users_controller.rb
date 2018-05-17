@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user.role = 'user'
     if @user.save
       flash[:success] = "Welcome to the Movie App!"
-      redirect_to @user
+      redirect_to "/"
     else
       render 'users/register'
     end

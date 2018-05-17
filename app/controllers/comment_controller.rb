@@ -1,8 +1,8 @@
 class CommentController < ApplicationController
 
   def create
-    user_id = 100
-    login = TRUE
+    user_id = current_user.id
+    login = logged_in?
     @film_id = params[:film_id]
     @comment = params[:comment]
     @user_name = User.find(user_id).name

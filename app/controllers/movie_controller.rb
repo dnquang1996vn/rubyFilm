@@ -1,7 +1,7 @@
 class MovieController < ApplicationController
   def show
     @film_id = params[:id]
-    user_id = 100;
+    user_id = current_user.id;
     @film = Film.find(@film_id)
     @genres = @film.genres
     @actors = @film.actors
