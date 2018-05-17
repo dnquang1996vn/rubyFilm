@@ -45,7 +45,7 @@
             return;
         } else
         {
-            // var user_id = user.id;
+            // var user_id = users.id;
             var user_id = 100;
         }
         $.ajaxSetup({

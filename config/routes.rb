@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'popular/index'
   root to: 'welcome#index'
   get "/signup",  to: "users#new"
-  resources :user
+  resources :users
 
   resources :movie
   resources :search
