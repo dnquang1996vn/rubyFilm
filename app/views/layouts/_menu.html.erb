@@ -30,11 +30,14 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <!-- Authentication Links -->
-
+                  <% if logged_in? %>
+                    <li> <%= link_to "Log out", logout_path, method: :delete %></li>
+                  <% else %>
                     <li class="discover"><a class="page-scroll" data-toggle="modal" title="Login to your account"
-                                            href="/static_page/login">Login</a></li>
+                                            href="/login">Login</a></li>
                     <li class="discover"><a class="page-scroll" data-toggle="modal"
-                                            title="Create a new account for free" href="/static_page/register">Register</a></li>
+                                            title="Create a new account for free" href="/singup">Register</a></li>
+                  <% end %>
                 </ul>
 
                 <div id="search_bar" style="width: 1000px" class="search_bar">

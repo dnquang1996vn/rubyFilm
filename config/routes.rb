@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get 'now_playing/index'
   get 'popular/index'
   root to: 'welcome#index'
+  get "/signup",  to: "users#new"
+  resources :users
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
 
   resources :movie
   resources :search
